@@ -39,6 +39,10 @@ public class Image {
         return image.getHeight();
     }
     
+    public int getPixelsCount(){
+        return image.getWidth()*image.getHeight();
+    }
+    
     private int getRGB(int x, int y, BufferedImage image){
         if(x < getWidth() && y < getHeight() && x > 0 && y > 0){
             return image.getRGB(x, y);
@@ -63,9 +67,9 @@ public class Image {
     }
     
     public void setRGB(int x, int y, int rgb){
-        if(x < getWidth() && y < getHeight() && x > 0 && y > 0){
+        //if(x < getWidth() && y < getHeight() && x > 0 && y > 0){
             image.setRGB(x, y, rgb);
-        }
+        //}
     }
     
     public Icon getIcon(int width, int height){

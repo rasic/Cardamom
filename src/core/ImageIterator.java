@@ -25,7 +25,7 @@ public class ImageIterator {
     
     public Color getNext(){
         x++;
-        if(x > image.getWidth()){
+        if(x >= image.getWidth()){
             x = 0;
             y++;
         }

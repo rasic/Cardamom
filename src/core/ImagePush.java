@@ -15,6 +15,7 @@ class ImagePush {
     }
     
     public void make(String text){
+        text+="\n";
         ImageIterator iter = new ImageIterator(image);
         for (int i = 0; i < text.length(); i++) {
             int znak = text.charAt(i);
@@ -23,7 +24,7 @@ class ImagePush {
             String binary = Integer.toString(znak, 2);
             int index = 0;
             while(binary.length() < 9){
-                binary = "0" + binary;
+                binary = "0"+binary;
             }
             
             for (int j = 0; j < 3; j++) {
