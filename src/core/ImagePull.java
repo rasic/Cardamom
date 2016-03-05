@@ -26,7 +26,6 @@ class ImagePull {
                     if(end == false){
                         end = true;
                     }else{
-                        System.out.println("end");
                         break;
                     }
                 }else{
