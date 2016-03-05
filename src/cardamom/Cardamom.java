@@ -15,7 +15,7 @@ public class Cardamom {
     public static void main(String[] args) {
         Utilities.tryLinuxLF();
         
-        Picture picture = new Picture();
+        Image picture = new Image();
         Gui gui = new Gui(picture);
     }
     

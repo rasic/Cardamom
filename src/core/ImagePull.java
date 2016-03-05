@@ -1,15 +1,16 @@
 package core;
 
-import cardamom.Picture;
+import cardamom.Image;
+import java.awt.Color;
 
 /**
  *
  * @author Ondřej Bleha
  */
 class ImagePull {
-    private final Picture pict;
+    private final Image pict;
     
-    public ImagePull(Picture pict){
+    public ImagePull(Image pict){
         this.pict = pict;
     }
     

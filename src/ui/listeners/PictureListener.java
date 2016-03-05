@@ -1,6 +1,6 @@
 package ui.listeners;
 
-import cardamom.Picture;
+import cardamom.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -12,12 +12,12 @@ import javax.swing.JFileChooser;
  * @author Ondřej Bleha
  */
 public class PictureListener implements ActionListener{
-    private final Picture pict;
+    private final Image pict;
     private final JButton button;
     private final int width;
     private final int height;
 
-    public PictureListener(Picture pict, JButton button) {
+    public PictureListener(Image pict, JButton button) {
         this.pict = pict;
         this.button = button;
         this.width = button.getWidth();

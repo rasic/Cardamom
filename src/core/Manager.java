@@ -1,6 +1,6 @@
 package core;
 
-import cardamom.Picture;
+import cardamom.Image;
 
 /**
  *
@@ -10,9 +10,9 @@ public class Manager {
     private final ImagePull pull;
     private final ImagePush push;
     
-    private final Picture pict;
+    private final Image pict;
     
-    public Manager(Picture pict){
+    public Manager(Image pict){
         this.pict = pict;
         
         this.pull = new ImagePull(pict);

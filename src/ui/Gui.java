@@ -1,6 +1,6 @@
 package ui;
 
-import cardamom.Picture;
+import cardamom.Image;
 import core.Manager;
 import ui.listeners.PictureListener;
 
@@ -9,16 +9,16 @@ import ui.listeners.PictureListener;
  * @author Ondřej Bleha
  */
 public class Gui extends javax.swing.JFrame {
-    private final Picture pict;
+    private final Image image;
     private final Manager manager;
     
-    public Gui(Picture pict) {
-        this.pict = pict;
-        manager = new Manager(this.pict);
+    public Gui(Image image) {
+        this.image = image;
+        manager = new Manager(this.image);
         
         initComponents();
         
-        picture.addActionListener(new PictureListener(pict, picture));
+        picture.addActionListener(new PictureListener(image, picture));
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -68,6 +68,11 @@ public class Gui extends javax.swing.JFrame {
         });
 
         save.setText("uložit");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
 
         flush.setText("flush");
 
@@ -140,6 +145,10 @@ public class Gui extends javax.swing.JFrame {
     private void pullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pullActionPerformed
         text.setText(manager.pullText());
     }//GEN-LAST:event_pullActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        image.saveImage("/home/bleha/image.png");
+    }//GEN-LAST:event_saveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu fileMenu;

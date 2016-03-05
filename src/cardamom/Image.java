@@ -14,11 +14,11 @@ import javax.swing.ImageIcon;
  *
  * @author Ondřej Bleha
  */
-public class Picture {
+public class Image {
     private BufferedImage image;
     private BufferedImage original;
     
-    public Picture() {
+    public Image() {
         original = new BufferedImage(20, 20, 1);
     }
     
@@ -27,7 +27,7 @@ public class Picture {
             image = ImageIO.read(file);
             original = ImageIO.read(file);
         } catch (IOException ex) {
-            Logger.getLogger(Picture.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Image.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     
