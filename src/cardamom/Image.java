@@ -81,10 +81,10 @@ public class Image {
         return new ImageIcon(original.getScaledInstance(width, height, 1));
     }
     
-    public void saveImage(String ref) {  
+    public void saveImage(File file) {  
         try {  
             String format = "png";
-            ImageIO.write(image, format, new File(ref));  
+            ImageIO.write(image, format, file);  
         } catch (IOException e) {
             e.printStackTrace();  
         }  

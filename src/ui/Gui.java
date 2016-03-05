@@ -2,6 +2,8 @@ package ui;
 
 import cardamom.Image;
 import core.Manager;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import ui.listeners.PictureListener;
 
 /**
@@ -147,7 +149,14 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_pullActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        image.saveImage("/home/bleha/image.png");
+        JFileChooser fc = new JFileChooser("~");
+         FileNameExtensionFilter filter = new FileNameExtensionFilter(
+        "JPG & GIF Images", "jpg", "gif");
+        fc.setFileFilter(filter);
+        int vysledek = fc.showOpenDialog(this);
+        if (vysledek == JFileChooser.APPROVE_OPTION) {
+            image.saveImage(fc.getSelectedFile());
+        }
     }//GEN-LAST:event_saveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
