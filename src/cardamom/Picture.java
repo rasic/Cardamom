@@ -31,6 +31,43 @@ public class Picture {
         }        
     }
     
+    public int getWidth(){
+        return image.getWidth();
+    }
+    
+    public int getHeight(){
+        return image.getHeight();
+    }
+    
+    private int getRGB(int x, int y, BufferedImage image){
+        if(x < getWidth() && y < getHeight() && x > 0 && y > 0){
+            return image.getRGB(x, y);
+        }else if (x < getWidth() && x > 0){
+            if(y >= getHeight()){
+                return image.getRGB(x, y-getHeight());
+            }else{
+                return image.getRGB(x, y+getHeight());
+            }
+        }else{
+            if(x >= getWidth()){
+                return image.getRGB(x-getWidth(), y);
+            }else{
+                return image.getRGB(x+getWidth(), y);
+            }
+        }
+    }
+    
+    public int getRGB(int x, int y){
+        //return getRGB(x, y, this.image);
+        return image.getRGB(x, y);
+    }
+    
+    public void setRGB(int x, int y, int rgb){
+        if(x < getWidth() && y < getHeight() && x > 0 && y > 0){
+            image.setRGB(x, y, rgb);
+        }
+    }
+    
     public Icon getIcon(int width, int height){
         if (width > height){
             height = (original.getHeight()*width)/original.getWidth();
@@ -39,4 +76,13 @@ public class Picture {
         }
         return new ImageIcon(original.getScaledInstance(width, height, 1));
     }
+    
+    public void saveImage(String ref) {  
+        try {  
+            String format = "png";
+            ImageIO.write(image, format, new File(ref));  
+        } catch (IOException e) {
+            e.printStackTrace();  
+        }  
+    }  
 }

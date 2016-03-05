@@ -1,6 +1,7 @@
 package ui;
 
 import cardamom.Picture;
+import core.Manager;
 import ui.listeners.PictureListener;
 
 /**
@@ -9,9 +10,11 @@ import ui.listeners.PictureListener;
  */
 public class Gui extends javax.swing.JFrame {
     private final Picture pict;
+    private final Manager manager;
     
     public Gui(Picture pict) {
         this.pict = pict;
+        manager = new Manager(this.pict);
         
         initComponents();
         
@@ -49,15 +52,20 @@ public class Gui extends javax.swing.JFrame {
 
         picture.setText("Načíst obrázek");
         picture.setPreferredSize(new java.awt.Dimension(207, 50));
-        picture.addActionListener(new java.awt.event.ActionListener() {
+
+        push.setText("vlozit");
+        push.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pictureActionPerformed(evt);
+                pushActionPerformed(evt);
             }
         });
 
-        push.setText("vlozit");
-
         pull.setText("vytáhnout");
+        pull.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pullActionPerformed(evt);
+            }
+        });
 
         save.setText("uložit");
 
@@ -125,9 +133,13 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pictureActionPerformed
+    private void pushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pushActionPerformed
+        manager.pushText(text.getText());
+    }//GEN-LAST:event_pushActionPerformed
+
+    private void pullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pullActionPerformed
+        text.setText(manager.pullText());
+    }//GEN-LAST:event_pullActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu fileMenu;

@@ -109,19 +109,22 @@
               <Dimension value="[207, 50]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="push">
           <Properties>
             <Property name="text" type="java.lang.String" value="vlozit"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pushActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="pull">
           <Properties>
             <Property name="text" type="java.lang.String" value="vyt&#xe1;hnout"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pullActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="save">
           <Properties>
