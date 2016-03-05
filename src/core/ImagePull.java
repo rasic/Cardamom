@@ -18,10 +18,21 @@ class ImagePull {
         ImageIterator iter = new ImageIterator(image);
         String text = "";
         String binary = "";
+        boolean end = false;
         
         for (int i = 0; i < image.getPixelsCount(); i++) {
-            if(binary.length() == 9){                
-                text += (char) Integer.parseInt(binary, 2);
+            if(binary.length() == 9){
+                if(binary.equals("000000000")){
+                    if(end == false){
+                        end = true;
+                    }else{
+                        System.out.println("end");
+                        break;
+                    }
+                }else{
+                    end = false;
+                    text += (char) Integer.parseInt(binary, 2);                    
+                }
                 binary = "";
             }
             
@@ -29,12 +40,9 @@ class ImagePull {
             binary += toBit(color.getRed());
             binary += toBit(color.getGreen());
             binary += toBit(color.getBlue());
-            if(text.endsWith("\n")){
-                break;
-            }
         }
         
-        return text.substring(0, text.length()-1);
+        return text;
     }
     
     private int toBit(int cislo){

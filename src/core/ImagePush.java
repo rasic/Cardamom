@@ -15,7 +15,6 @@ class ImagePush {
     }
     
     public void make(String text){
-        text+="\n";
         ImageIterator iter = new ImageIterator(image);
         for (int i = 0; i < text.length(); i++) {
             int znak = text.charAt(i);
@@ -33,9 +32,19 @@ class ImagePush {
                 int g = vypocti(color.getGreen(), binary.charAt(index++));
                 int b = vypocti(color.getBlue(), binary.charAt(index++));
                 iter.setActual(new Color(r, g, b));
-            }
-            
+            }         
         }
+        
+        //posledni 2 znaky
+            for (int j = 0; j < 2; j++) {
+                for (int k = 0; k < 3; k++) {
+                    Color color = iter.getNext();
+                    int r = vypocti(color.getRed(), '0');
+                    int g = vypocti(color.getGreen(), '0');
+                    int b = vypocti(color.getBlue(), '0');
+                    iter.setActual(new Color(r, g, b));
+                }
+            } 
     }
     
     private int vypocti(int barva, char bit){
