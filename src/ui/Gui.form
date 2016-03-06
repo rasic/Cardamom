@@ -112,7 +112,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="push">
           <Properties>
-            <Property name="text" type="java.lang.String" value="vlozit"/>
+            <Property name="text" type="java.lang.String" value="vlo&#x17e;it"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pushActionPerformed"/>
@@ -136,7 +136,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="flush">
           <Properties>
-            <Property name="text" type="java.lang.String" value="flush"/>
+            <Property name="text" type="java.lang.String" value="zav&#x159;&#xed;t"/>
           </Properties>
         </Component>
       </SubComponents>

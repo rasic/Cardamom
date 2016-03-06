@@ -55,7 +55,7 @@ public class Gui extends javax.swing.JFrame {
         picture.setText("Načíst obrázek");
         picture.setPreferredSize(new java.awt.Dimension(207, 50));
 
-        push.setText("vlozit");
+        push.setText("vložit");
         push.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pushActionPerformed(evt);
@@ -76,7 +76,7 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
-        flush.setText("flush");
+        flush.setText("zavřít");
 
         javax.swing.GroupLayout picturePaneLayout = new javax.swing.GroupLayout(picturePane);
         picturePane.setLayout(picturePaneLayout);
