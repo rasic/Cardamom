@@ -77,6 +77,11 @@ public class Gui extends javax.swing.JFrame {
         });
 
         flush.setText("zavřít");
+        flush.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flushActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout picturePaneLayout = new javax.swing.GroupLayout(picturePane);
         picturePane.setLayout(picturePaneLayout);
@@ -158,6 +163,11 @@ public class Gui extends javax.swing.JFrame {
             image.saveImage(fc.getSelectedFile());
         }
     }//GEN-LAST:event_saveActionPerformed
+
+    private void flushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flushActionPerformed
+        picture.setIcon(null);
+        picture.setText("Načíst obrázek");
+    }//GEN-LAST:event_flushActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu fileMenu;
