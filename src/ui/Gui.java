@@ -20,10 +20,17 @@ public class Gui extends javax.swing.JFrame {
         
         initComponents();
         
-        picture.addActionListener(new PictureListener(image, picture));
+        picture.addActionListener(new PictureListener(image, picture, this));
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+    
+    public void setButtonsEnabled(boolean enabled){
+        this.push.setEnabled(enabled);
+        this.pull.setEnabled(enabled);
+        this.save.setEnabled(enabled);
+        this.flush.setEnabled(enabled);
     }
 
     /**
@@ -56,6 +63,7 @@ public class Gui extends javax.swing.JFrame {
         picture.setPreferredSize(new java.awt.Dimension(207, 50));
 
         push.setText("vložit");
+        push.setEnabled(false);
         push.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pushActionPerformed(evt);
@@ -63,6 +71,7 @@ public class Gui extends javax.swing.JFrame {
         });
 
         pull.setText("vytáhnout");
+        pull.setEnabled(false);
         pull.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pullActionPerformed(evt);
@@ -70,6 +79,7 @@ public class Gui extends javax.swing.JFrame {
         });
 
         save.setText("uložit");
+        save.setEnabled(false);
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
@@ -77,6 +87,7 @@ public class Gui extends javax.swing.JFrame {
         });
 
         flush.setText("zavřít");
+        flush.setEnabled(false);
         flush.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 flushActionPerformed(evt);
@@ -165,6 +176,7 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void flushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flushActionPerformed
+        setButtonsEnabled(false);
         picture.setIcon(null);
         picture.setText("Načíst obrázek");
     }//GEN-LAST:event_flushActionPerformed

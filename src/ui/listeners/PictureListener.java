@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import ui.Gui;
 
 /**
  *
@@ -14,12 +15,16 @@ import javax.swing.JFileChooser;
 public class PictureListener implements ActionListener{
     private final Image pict;
     private final JButton button;
+    private final Gui gui;
+    
     private final int width;
     private final int height;
 
-    public PictureListener(Image pict, JButton button) {
+    public PictureListener(Image pict, JButton button, Gui gui) {
         this.pict = pict;
         this.button = button;
+        this.gui = gui;
+        
         this.width = button.getWidth();
         this.height = button.getHeight();
     }
@@ -31,6 +36,7 @@ public class PictureListener implements ActionListener{
             pict.loadPicture(file);
             button.setIcon(pict.getIcon(width, height));
             button.setText("");
+            gui.setButtonsEnabled(true);
         }
     }
     
